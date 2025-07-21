@@ -1,4 +1,5 @@
 *.bak
 node_modules/
 *.log
-cursor-logs/ 
+cursor-logs/
+_backups/ 
