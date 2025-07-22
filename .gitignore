@@ -21,6 +21,7 @@ node_modules/
 
 # Git internals (don’t track a nested repo)
 .git/
+.git
 
 # Temporary or ephemeral
 .temp/
