@@ -1,5 +1,5 @@
 # System clutter
-.DS_Store
+.DS_Store*
 Thumbs.db
 
 # Logs and caches
@@ -35,7 +35,7 @@ node_modules/
 # Output folders (if applicable)
 dist/
 build/
-# screenshots/
-# summaries/
+screenshots/
+summaries/
 .backups/
 .archive/
