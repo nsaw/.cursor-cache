@@ -1,0 +1,70 @@
+{
+  "showInUI": true,
+  "blockId": "patch-v3.1.0(P0.00.01)_strict-execution-ruleset",
+  "description": "Install universal runtime validation enforcement for all Cursor agents",
+  "target": "GLOBAL",
+  "version": "patch-v3.1.0(P0.00.01)_strict-execution-ruleset",
+  "notes": [
+    "GOAL: Enforce strict runtime validation at every patch execution",
+    "MISSION: Install global rule config and harden agent behavior",
+    "CONTEXT: Prevent false-positive completions, enforce validation rigor",
+    "SAFETY ENFORCEMENT: Runtime proof, mutation logs, dry-run audits required before any patch success",
+    "STABLE STATE CHECK: Ruleset must be picked up and honored by all agents",
+    "VALIDATION REQUIREMENTS:",
+    "[ ] Rule file must be created at .cursor/rules/strict-execution.mdc",
+    "[ ] All hybrid blocks must inherit default enforcement flags",
+    "[ ] Patch execution must block unless validation gates pass",
+    "DOCUMENTATION LAW: Summary required before phase commit or tag"
+  ],
+  "preCommit": {
+    "backup": {
+      "path": "/Users/sawyer/gitSync/_backups/",
+      "file": "strict-execution-ruleset_backup_$(date +%Y%m%d_%H%M%S).tar.gz"
+    },
+    "shell": [
+      "echo 'Initializing strict runtime enforcement patch...'"
+    ]
+  },
+  "mutations": [
+    {
+      "path": "/Users/sawyer/gitSync/gpt-cursor-runner/.cursor/rules/strict-execution.mdc",
+      "contents": "---\nrule: strict-execution\nappliesTo: all\npriority: required\nrequires:\n  - enforceValidationGate\n  - strictRuntimeAudit\n  - runDryCheck\n  - forceRuntimeTrace\n  - requireMutationProof\n  - requireServiceUptime\nonViolation: block\nsummary: |\n  This rule enforces strict validation gates across all patch executions.\n  Cursor agents may not return 'success' without:\n  - Verified runtime mutation effect\n  - Dry-run check\n  - Active service confirmation\n  - Mutation proof log\n  - Summary file confirmation"
+    },
+    {
+      "path": "/Users/sawyer/gitSync/.cursor-config.json",
+      "contents": "{\n  \"defaultPatchOptions\": {\n    \"enforceValidationGate\": true,\n    \"strictRuntimeAudit\": true,\n    \"runDryCheck\": true,\n    \"forceRuntimeTrace\": true,\n    \"requireMutationProof\": true,\n    \"requireServiceUptime\": true\n  }\n}"
+    }
+  ],
+  "postMutationBuild": {
+    "shell": [
+      "test -f /Users/sawyer/gitSync/gpt-cursor-runner/.cursor/rules/strict-execution.mdc || exit 201",
+      "test -f /Users/sawyer/gitSync/.cursor-config.json || exit 202"
+    ]
+  },
+  "validate": {
+    "shell": [
+      "grep -q enforceValidationGate /Users/sawyer/gitSync/.cursor-config.json || exit 203",
+      "grep -q strictRuntimeAudit /Users/sawyer/gitSync/.cursor-config.json || exit 204"
+    ]
+  },
+  "final": {
+    "git": {
+      "commit": "[P0.00.01] strict-execution-ruleset — Enforce validation rigor globally",
+      "tag": "patch-v3.1.0(P0.00.01)_strict-execution-ruleset"
+    },
+    "summary": "✅ patch-v3.1.0(P0.00.01)_strict-execution-ruleset: Global enforcement rules installed successfully.",
+    "summaryFile": "/Users/sawyer/gitSync/.cursor-cache/patch-v3.1.0(P0.00.01)_strict-execution-ruleset.md"
+  },
+  "blockCommitOnError": true,
+  "watchConsole": true,
+  "execution": {
+    "autoReleaseTimeoutMs": 30000,
+    "onReloadHang": "Move to background and resume automatically"
+  },
+  "enforceValidationGate": true,
+  "strictRuntimeAudit": true,
+  "runDryCheck": true,
+  "forceRuntimeTrace": true,
+  "requireMutationProof": true,
+  "requireServiceUptime": true
+}

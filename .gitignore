@@ -1,5 +1,37 @@
-*.bak
-node_modules/
+# System clutter
+.DS_Store
+Thumbs.db
+
+# Logs and caches
 *.log
 cursor-logs/
-_backups/ 
+*.bak
+*.tmp
+
+# Runtime cruft
+__pycache__/
+*.pyc
+*.pyo
+*.sqlite
+*.db
+
+# Node + package stuff
+node_modules/
+.npm/
+
+# Git internals (don’t track a nested repo)
+.git/
+
+# Temporary or ephemeral
+.temp/
+*.tar.gz
+*.zip
+*.bak
+*.old
+*.swp
+
+# Output folders (if applicable)
+dist/
+build/
+# screenshots/
+# summaries/

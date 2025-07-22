@@ -1,0 +1,25 @@
+{
+  "paths": {
+    "patches": "/Users/sawyer/gitSync/tm-mobile-cursor/mobile-native-fresh/tasks/patches",
+    "summaries": "/Users/sawyer/gitSync/tm-mobile-cursor/mobile-native-fresh/tasks/summaries",
+    "logs": "/Users/sawyer/gitSync/tm-mobile-cursor/logs",
+    "scripts": "/Users/sawyer/gitSync/tm-mobile-cursor/scripts",
+    "tasks": "/Users/sawyer/gitSync/tm-mobile-cursor/tasks"
+  },
+  "routing": {
+    "patches": {
+      "target": "/Users/sawyer/gitSync/tm-mobile-cursor/mobile-native-fresh/tasks/patches",
+      "archive": "/Users/sawyer/gitSync/tm-mobile-cursor/mobile-native-fresh/tasks/patches/.archive",
+      "failed": "/Users/sawyer/gitSync/tm-mobile-cursor/mobile-native-fresh/tasks/patches/.failed"
+    },
+    "summaries": {
+      "target": "/Users/sawyer/gitSync/tm-mobile-cursor/mobile-native-fresh/tasks/summaries",
+      "archive": "/Users/sawyer/gitSync/tm-mobile-cursor/mobile-native-fresh/tasks/summaries/.archive"
+    }
+  },
+  "project": {
+    "name": "tm-mobile-cursor",
+    "root": "/Users/sawyer/gitSync/tm-mobile-cursor",
+    "mobileNativeFresh": "/Users/sawyer/gitSync/tm-mobile-cursor/mobile-native-fresh"
+  }
+}
